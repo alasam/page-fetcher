@@ -1,6 +1,6 @@
 // Modules
 const fs = require('fs');
-const request = require('request');;
+const request = require('request');
 
 // Retrieving data from command line and assigning them to variables
 const args = process.argv.slice(2);
@@ -12,14 +12,14 @@ const fetcher = (site, path) => {
   request(site, (error, response, body) => { // request function takes in URL and its contents
     fs.writeFile(path, body, err => { // writeFile function creates the file
       if (err) {
-        console.error(err) // if an error occurs
-        return
+        console.error(err); // if an error occurs
+        return;
       } else {
         console.error(`Downloaded and saved ${body.length} bytes to ${path}`); // output message
       }
-   });
+    });
   });
-}
+};
 
 // Calls fetcher function
 fetcher(url, location);
